@@ -13,11 +13,11 @@
     <header>
         <h1 class="title">QQ</h1>
         <form action="" onsubmit="return false">
-            <input id="search-input" type="text" placeholder="Search your city" onsubmit="displayData()">
-            <button id="search-btn" type="submit" onclick="displayData()">
+            <input id="search-input" type="text" placeholder="City, State, Country" autocapitalize="words" onsubmit="displaySearchLocation()">
+            <button id="search-btn" type="submit" onclick="displaySearchLocation()">
                 <i class="fa-magnifying-glass fa-solid"></i>
             </button>
-            <button id="current-location-btn" type="submit" onclick="displayData()">
+            <button id="current-location-btn" type="submit" onclick="displayCurrentLocation()">
                 <i class="fa-solid fa-location-dot"></i>
             </button>
         </form>

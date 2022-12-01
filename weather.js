@@ -7,7 +7,13 @@ const input = document.getElementById("search-input");
 
 const APIKey = "a0f8477cb9901f90fe0e1fb2f422273b";
 
-const displayData = () => {
+const displaySearchLocation = () => {
+  let location = input.value;
+
+  getCoordinates(location);
+};
+
+const displayCurrentLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition, showError);
   } else {
@@ -16,7 +22,7 @@ const displayData = () => {
 };
 
 const showPosition = (position) => {
-  getLocation(position.coords.latitude, position.coords.longitude);
+  getCity(position.coords.latitude, position.coords.longitude);
   getWeather(position.coords.latitude, position.coords.longitude);
 };
 
@@ -39,7 +45,21 @@ const showError = (error) => {
   }
 };
 
-const getLocation = (lat, lon) => {
+const getCoordinates = (city) => {
+  fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${city}&appid=${APIKey}`
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      let lat = response[0].lat;
+      let lon = response[0].lon;
+      getCity(lat, lon);
+      getWeather(lat, lon);
+    })
+    .catch((error) => alert(error));
+};
+
+const getCity = (lat, lon) => {
   fetch(
     `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${APIKey}`
   )
