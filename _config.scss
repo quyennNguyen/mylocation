@@ -1,0 +1,56 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@mixin jumboTitle {
+    font: 900 6rem $font-family;
+}
+
+@mixin title {
+    font: map-get($font-weight, "L") map-get($font-size, "L") $font-family;
+}
+
+@mixin subtitle {
+    font: map-get($font-weight, "M") map-get($font-size, "M") $font-family;
+}
+
+@mixin body {
+    font: map-get($font-weight, "S") map-get($font-size, "S") $font-family;
+}
+
+@mixin transition($duration: 0.5s) {
+    transition: all $duration ease-in-out;
+}
+
+@mixin link {
+    color: $color-4;
+    text-decoration: none;
+    @include body;
+
+    &:hover {
+        color: $color-3;
+    }
+}
+
+@mixin button {
+    margin: 5px;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 15px;
+    color: $color-4;
+    background: transparent;
+    cursor: pointer;
+    @include body;
+}
+
+@mixin input {
+    border: solid rgba($color-4, 0.5);
+    border-radius: 30px;
+    padding: 10px 15px;
+    outline: none;
+    color: $color-4;
+    background: transparent;
+    @include body;
+}

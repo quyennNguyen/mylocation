@@ -1,0 +1,82 @@
+@import "variables";
+@import "config";
+
+body {
+    min-width: 700px;
+    min-height: 100vh;
+    overflow: scroll;
+    color: $color-4;
+    background: linear-gradient(to bottom right, $color-1, $color-2);
+    @include body;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+header {
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .title {
+        @include title;
+    }
+
+    form {
+        #search-input {
+            @include input;
+        }
+
+        #search-btn {
+            @include button;
+        }
+    }
+}
+
+main {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+
+    .time {
+        margin: 50px;
+        text-align: center;
+
+        .clock {
+            @include jumboTitle;
+        }
+
+        .day {
+            @include subtitle;
+        }
+    }
+
+    .weather {
+        margin: 50px;
+        border-radius: 20px;
+        padding: 50px 200px;
+        text-align: center;
+        background: rgba($color-4, 0.2);
+
+        #city {
+            @include title;
+        }
+
+        #temperature {
+            @include jumboTitle;
+        }
+
+        #weather {
+            @include title;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

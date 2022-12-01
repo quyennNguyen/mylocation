@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <header>
+        <h1 class="title">QQ</h1>
+        <form action="" onsubmit="return false">
+            <input id="search-input" type="text" placeholder="Search your city" onsubmit="displayData()">
+            <button id="search-btn" type="submit" onclick="displayData()">
+                <i class="fa-magnifying-glass fa-solid"></i>
+            </button>
+        </form>
+    </header>
+
+    <main>
+        <section class="time">
+            <div class="clock">
+                <span id="hour"></span>
+                <span id="minute"></span>
+                <span id="second"></span>
+            </div>
+            <div class="day">
+                <span id="day"></span>
+                <span id="month"></span>
+                <span id="date"></span>
+            </div>
+        </section>
+
+        <section class="weather">
+            <div id="city">-----</div>
+            <div id="coordinates">----- -----</div>
+            <div id="temperature">--</div>
+            <div id="weather">-----</div>
+            <div id="min-max-temp">-- --</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&lt;&lt;&lt; &copy; 2022 Quyen Nguyen &gt;&gt;&gt;</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/d83c12719b.js" crossorigin="anonymous"></script>
+    <script src="time.js"></script>
+    <script src="weather.js"></script>
+</body>
+
+</html>
