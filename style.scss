@@ -3,10 +3,9 @@
 
 body {
     min-width: 700px;
-    min-height: 100vh;
     overflow: scroll;
     color: $color-4;
-    background: linear-gradient(to bottom right, $color-1, $color-2);
+    background: $color-1;
     @include body;
 
     &::-webkit-scrollbar {
@@ -15,12 +14,13 @@ body {
 }
 
 header {
-    margin: 10px;
+    margin: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .title {
+        margin: 0 10px;
         @include title;
     }
 
@@ -50,24 +50,20 @@ main {
     align-items: center;
 
     .time {
-        margin: 50px;
+        margin: 50px 0;
         text-align: center;
 
         .clock {
-            @include jumboTitle;
-        }
-
-        .day {
-            @include subtitle;
+            @include title;
         }
     }
 
     .weather {
-        margin: 50px;
+        margin: 50px 0;
         border-radius: 20px;
-        padding: 50px 200px;
+        padding: 50px 100px;
         text-align: center;
-        background: rgba($color-4, 0.2);
+        background: rgba($color-3, 0.2);
 
         #city {
             @include title;
@@ -84,6 +80,7 @@ main {
 }
 
 footer {
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;

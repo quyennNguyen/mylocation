@@ -6,10 +6,9 @@
 
 body {
   min-width: 700px;
-  min-height: 100vh;
   overflow: scroll;
   color: #f4f1de;
-  background: linear-gradient(to bottom right, #3d405b, #806491);
+  background: #3d405b;
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 body::-webkit-scrollbar {
@@ -17,12 +16,13 @@ body::-webkit-scrollbar {
 }
 
 header {
-  margin: 10px;
+  margin: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 header .title {
+  margin: 0 10px;
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 header form #search-input {
@@ -35,7 +35,7 @@ header form #search-input {
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 header form #search-btn {
-  margin: 10px;
+  margin: 0 10px;
   border: none;
   border-radius: 20px;
   color: #f4f1de;
@@ -44,7 +44,7 @@ header form #search-btn {
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 header form #current-location-btn {
-  margin: 10px;
+  margin: 0 10px;
   border: none;
   border-radius: 20px;
   color: #f4f1de;
@@ -64,21 +64,18 @@ main {
   align-items: center;
 }
 main .time {
-  margin: 50px;
+  margin: 50px 0;
   text-align: center;
 }
 main .time .clock {
-  font: 900 6rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-main .time .day {
-  font: 600 1.5rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main .weather {
-  margin: 50px;
+  margin: 50px 0;
   border-radius: 20px;
-  padding: 50px 200px;
+  padding: 50px 100px;
   text-align: center;
-  background: rgba(244, 241, 222, 0.2);
+  background: rgba(242, 204, 143, 0.2);
 }
 main .weather #city {
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -91,6 +88,7 @@ main .weather #weather {
 }
 
 footer {
+  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;

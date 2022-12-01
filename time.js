@@ -10,8 +10,8 @@ const monthArr = ["January", "February", "March", "April", "May", "June", "July"
 
 const displayTime = () => {
     const d = new Date();
-    hour.innerHTML = `${d.getHours()}&nbsp;:&nbsp;`;
-    minute.innerHTML = `${d.getMinutes()}&nbsp;:&nbsp;`;
+    hour.innerHTML = `${d.getHours()}:`;
+    minute.innerHTML = `${d.getMinutes()}:`;
     second.innerHTML = d.getSeconds();
     day.innerHTML = `${dayArr[d.getDay()]},&nbsp;`;
     month.innerHTML = `${monthArr[d.getMonth()]}&nbsp;`;
