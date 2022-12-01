@@ -32,6 +32,14 @@ header {
         #search-btn {
             @include button;
         }
+
+        #current-location-btn {
+            @include button;
+
+            &:hover {
+                animation: animate 1s ease-in-out infinite;
+            }
+        }
     }
 }
 
@@ -79,4 +87,18 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }

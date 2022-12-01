@@ -35,10 +35,9 @@
 }
 
 @mixin button {
-    margin: 5px;
+    margin: 10px;
     border: none;
     border-radius: 20px;
-    padding: 5px 15px;
     color: $color-4;
     background: transparent;
     cursor: pointer;
