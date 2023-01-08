@@ -9,32 +9,28 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
-<body>
+<body onload="displayLocalLocation()">
     <header>
         <h1 class="title">QQ</h1>
         <form action="" onsubmit="return false">
-            <input id="search-input" type="text" placeholder="City, State, Country" autocapitalize="words" onsubmit="displaySearchLocation()">
+            <input id="search-input" type="text" placeholder="City, State, Country" autocapitalize="words"
+                onsubmit="displaySearchLocation()">
             <button id="search-btn" type="submit" onclick="displaySearchLocation()">
                 <i class="fa-magnifying-glass fa-solid"></i>
             </button>
-            <button id="current-location-btn" type="submit" onclick="displayCurrentLocation()">
+            <button id="current-location-btn" type="submit" onclick="displayLocalLocation()">
                 <i class="fa-solid fa-location-dot"></i>
             </button>
         </form>
     </header>
 
     <main>
-        <section class="time">
-            <div class="clock">
-                <span id="hour"></span>
-                <span id="minute"></span>
-                <span id="second"></span>
-            </div>
-            <div class="day">
-                <span id="day"></span>
-                <span id="month"></span>
-                <span id="date"></span>
-            </div>
+        <section class="clock">
+            <div id="time"></div>
+            <div id="day"></div>
+            <div id="month"></div>
+            <div id="date"></div>
+            <div id="year"></div>
         </section>
 
         <section class="weather">
@@ -51,8 +47,7 @@
     </footer>
 
     <script src="https://kit.fontawesome.com/d83c12719b.js" crossorigin="anonymous"></script>
-    <script src="time.js"></script>
-    <script src="weather.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

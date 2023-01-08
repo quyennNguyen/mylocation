@@ -3,9 +3,9 @@
 
 body {
     min-width: 700px;
+    min-height: 100vh;
     overflow: scroll;
-    color: $color-4;
-    background: $color-1;
+    color: #ffffff;
     @include body;
 
     &::-webkit-scrollbar {
@@ -20,7 +20,6 @@ header {
     align-items: center;
 
     .title {
-        margin: 0 10px;
         @include title;
     }
 
@@ -49,32 +48,45 @@ main {
     justify-content: center;
     align-items: center;
 
-    .time {
-        margin: 50px 0;
+    .clock {
+        margin: 20px 0;
         text-align: center;
 
-        .clock {
+        #time {
+            margin-bottom: 5px;
+            border-radius: 10px;
+            padding: 10px 20px;
+            background: $color-1;
             @include title;
+        }
+
+        #day,
+        #month,
+        #date,
+        #year {
+            display: inline-block;
+            border-radius: 10px;
+            padding: 10px 20px;
+            background: $color-1;
         }
     }
 
     .weather {
-        margin: 50px 0;
-        border-radius: 20px;
-        padding: 50px 100px;
+        margin: 100px 0;
         text-align: center;
-        background: rgba($color-3, 0.2);
 
         #city {
             @include title;
         }
 
         #temperature {
+            margin: 10px;
+            color: $color-2;
             @include jumboTitle;
         }
 
         #weather {
-            @include title;
+            @include subtitle;
         }
     }
 }
@@ -92,7 +104,7 @@ footer {
     }
 
     50% {
-        transform: translateY(-5px);
+        transform: translateY(-10px);
     }
 
     100% {

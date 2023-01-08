@@ -5,7 +5,7 @@
 }
 
 @mixin jumboTitle {
-    font: 900 6rem $font-family;
+    font: 900 5rem $font-family;
 }
 
 @mixin title {
@@ -25,31 +25,30 @@
 }
 
 @mixin link {
-    color: $color-4;
+    color: $color-3;
     text-decoration: none;
     @include body;
 
     &:hover {
-        color: $color-3;
+        color: $color-2;
     }
 }
 
 @mixin button {
     margin: 0 10px;
     border: none;
-    border-radius: 20px;
-    color: $color-4;
+    color: #ffffff;
     background: transparent;
     cursor: pointer;
     @include body;
 }
 
 @mixin input {
-    border: solid rgba($color-4, 0.5);
+    border: solid rgba(#ffffff, 0.5);
     border-radius: 30px;
-    padding: 10px 15px;
+    padding: 10px 20px;
     outline: none;
-    color: $color-4;
+    color: #ffffff;
     background: transparent;
     @include body;
 }
