@@ -4,10 +4,6 @@
     padding: 0;
 }
 
-@mixin jumboTitle {
-    font: 900 5rem $font-family;
-}
-
 @mixin title {
     font: map-get($font-weight, "L") map-get($font-size, "L") $font-family;
 }

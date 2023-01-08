@@ -92,9 +92,9 @@ main .weather #city {
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main .weather #temperature {
-  margin: 10px 0;
+  margin: 20px 0;
   color: #f2cc8f;
-  font: 900 5rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main .weather #weather {
   font: 600 1.5rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

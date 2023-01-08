@@ -85,9 +85,9 @@ main {
         }
 
         #temperature {
-            margin: 10px 0;
+            margin: 20px 0;
             color: $color-2;
-            @include jumboTitle;
+            @include title;
         }
 
         #weather {
