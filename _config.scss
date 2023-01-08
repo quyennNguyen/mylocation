@@ -24,18 +24,17 @@
     transition: all $duration ease-in-out;
 }
 
-@mixin link {
-    color: $color-3;
-    text-decoration: none;
-    @include body;
+// @mixin link {
+//     color: $color-3;
+//     text-decoration: none;
+//     @include body;
 
-    &:hover {
-        color: $color-2;
-    }
-}
+//     &:hover {
+//         color: $color-2;
+//     }
+// }
 
 @mixin button {
-    margin: 0 10px;
     border: none;
     color: #ffffff;
     background: transparent;

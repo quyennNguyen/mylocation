@@ -5,8 +5,10 @@
 }
 
 body {
-  min-height: 100vh;
+  min-width: 700px;
   overflow: scroll;
+  display: grid;
+  grid-template-rows: 10vh 85vh 5vh;
   color: #ffffff;
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -15,13 +17,17 @@ body::-webkit-scrollbar {
 }
 
 header {
-  margin: 20px;
+  grid-area: 1/1/span 1/span 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 header .title {
+  margin: 0 20px;
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+header form {
+  margin: 0 20px;
 }
 header form #search-input {
   border: solid rgba(255, 255, 255, 0.5);
@@ -33,7 +39,7 @@ header form #search-input {
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 header form #search-btn {
-  margin: 0 10px;
+  margin: 0 8px;
   border: none;
   color: #ffffff;
   background: transparent;
@@ -41,7 +47,6 @@ header form #search-btn {
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 header form #current-location-btn {
-  margin: 0 10px;
   border: none;
   color: #ffffff;
   background: transparent;
@@ -54,13 +59,14 @@ header form #current-location-btn:hover {
 }
 
 main {
+  grid-area: 2/1/span 1/span 1;
+  padding: 50px 0 100px;
   display: flex;
   flex-flow: column;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
 }
 main .clock {
-  margin: 20px 0;
   text-align: center;
 }
 main .clock #time {
@@ -80,14 +86,13 @@ main .clock #year {
   background: #3d405b;
 }
 main .weather {
-  margin: 100px 0;
   text-align: center;
 }
 main .weather #city {
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main .weather #temperature {
-  margin: 10px;
+  margin: 10px 0;
   color: #f2cc8f;
   font: 900 5rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -96,7 +101,7 @@ main .weather #weather {
 }
 
 footer {
-  margin: 20px;
+  grid-area: 3/1/span 1/span 1;
   display: flex;
   justify-content: center;
   align-items: center;
