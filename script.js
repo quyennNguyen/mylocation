@@ -4,8 +4,10 @@ const temp = document.getElementById("temperature");
 const weather = document.getElementById("weather");
 const minMaxTemp = document.getElementById("min-max-temp");
 const input = document.getElementById("search-input");
+const map = document.getElementById("map");
 
-const APIKey = "a0f8477cb9901f90fe0e1fb2f422273b";
+const OWAPIKey = "a0f8477cb9901f90fe0e1fb2f422273b";
+const GAPIKey = "AIzaSyD7OxAY-i7i4-BxyuoIP9bgqMwiP0K_dRU";
 
 const displayLocalLocation = () => {
   stopTime();
@@ -13,8 +15,11 @@ const displayLocalLocation = () => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        getCity(position.coords.latitude, position.coords.longitude);
-        getWeather(position.coords.latitude, position.coords.longitude);
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        getCity(lat, lon);
+        getWeather(lat, lon);
+        map.innerHTML = `<img src="https://maps.googleapis.com/maps/api/staticmap?center=${lat,lon}&zoom=14&size=400x300&sensor=false&key=${GAPIKey}" alt="my location">`;
       },
       (error) => {
         switch (error.code) {
@@ -46,7 +51,7 @@ const displaySearchLocation = () => {
   let location = input.value;
 
   fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${APIKey}`
+    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${OWAPIKey}`
   )
     .then((response) => response.json())
     .then((response) => {
@@ -60,7 +65,7 @@ const displaySearchLocation = () => {
 
 const getCity = (lat, lon) => {
   fetch(
-    `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${APIKey}`
+    `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${OWAPIKey}`
   )
     .then((response) => response.json())
     .then((response) => {
@@ -74,7 +79,7 @@ const getCity = (lat, lon) => {
 
 const getWeather = (lat, lon) => {
   fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OWAPIKey}&units=imperial`
   )
     .then((response) => response.json())
     .then((response) => {
