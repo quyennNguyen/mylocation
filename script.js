@@ -88,6 +88,7 @@ const getWeather = (lat, lon) => {
 
 // ----------------------------------------------------------------------
 
+const clock = document.getElementById("clock");
 const time = document.getElementById("time");
 const day = document.getElementById("day");
 const month = document.getElementById("month");
@@ -151,8 +152,14 @@ const displayTime = (d, sr, ss) => {
 
   if (now >= sr && now <= ss) {
     document.body.style.background = `linear-gradient(#65c2f5, #b0d6f5)`;
+    clock.style.background = `url("img/day.gif") no-repeat`;
+    clock.style.backgroundSize = "cover";
+    clock.style.color = "#000000";
   } else {
     document.body.style.background = `linear-gradient(#131862, #546bab)`;
+    clock.style.background = `url("img/night.gif") no-repeat`;
+    clock.style.backgroundSize = "cover";
+    clock.style.color = "#ffffff";
   }
 
   let h = d.getHours();

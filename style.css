@@ -5,13 +5,9 @@
 }
 
 body {
-  min-width: 490px;
+  min-width: 700px;
   min-height: 100vh;
   overflow: scroll;
-  display: grid;
-  grid-template-rows: 5rem auto 3rem;
-  grid-template-columns: auto;
-  gap: 20px;
   color: #ffffff;
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -20,17 +16,13 @@ body::-webkit-scrollbar {
 }
 
 header {
-  grid-area: 1/1/span 1/span 1;
+  margin: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 header .title {
-  margin: 0 20px;
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-header form {
-  margin: 0 20px;
 }
 header form #search-input {
   border: solid rgba(255, 255, 255, 0.5);
@@ -62,31 +54,31 @@ header form #current-location-btn:hover {
 }
 
 main {
-  grid-area: 2/1/span 1/span 1;
+  margin: 20px;
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
 }
-main .clock {
+main #clock {
   margin: 20px;
-  text-align: center;
+  min-width: 600px;
+  min-height: 300px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
-main .clock #time {
+main #clock #time {
   margin-bottom: 5px;
-  border-radius: 10px;
   padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.5);
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-main .clock #day,
-main .clock #month,
-main .clock #date,
-main .clock #year {
-  display: inline-block;
-  border-radius: 10px;
+main #clock #day,
+main #clock #month,
+main #clock #date,
+main #clock #year {
   padding: 10px 20px;
-  background: rgba(0, 0, 0, 0.5);
 }
 main .weather {
   margin: 20px;
@@ -104,7 +96,7 @@ main .weather #weather {
 }
 
 footer {
-  grid-area: 3/1/span 1/span 1;
+  margin: 20px;
   display: flex;
   justify-content: center;
   align-items: center;

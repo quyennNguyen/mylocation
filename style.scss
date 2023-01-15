@@ -2,13 +2,9 @@
 @import "config";
 
 body {
-    min-width: 500px;
+    min-width: 700px;
     min-height: 100vh;
     overflow: scroll;
-    display: grid;
-    grid-template-rows: 5rem auto 3rem;
-    grid-template-columns: auto;
-    gap: 20px;
     color: #ffffff;
     @include body;
 
@@ -18,18 +14,16 @@ body {
 }
 
 header {
-    grid-area: 1 / 1 / span 1 / span 1;
+    margin: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     .title {
-        margin: 0 20px;
         @include title;
     }
 
     form {
-        margin: 0 20px;
 
         #search-input {
             @include input;
@@ -51,22 +45,26 @@ header {
 }
 
 main {
-    grid-area: 2 / 1 / span 1 / span 1;
-    padding: 50px;
+    margin: 20px;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
     align-items: center;
 
-    .clock {
+    #clock {
         margin: 20px;
-        text-align: center;
+        min-width: 600px;
+        min-height: 300px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
 
         #time {
             margin-bottom: 5px;
-            border-radius: 10px;
+            // border-radius: 10px;
             padding: 10px 20px;
-            background: rgba(#000000, 0.5);
+            // background: rgba(#000000, 0.5);
             @include title;
         }
 
@@ -74,10 +72,9 @@ main {
         #month,
         #date,
         #year {
-            display: inline-block;
-            border-radius: 10px;
+            // border-radius: 10px;
             padding: 10px 20px;
-            background: rgba(#000000, 0.5);
+            // background: rgba(#000000, 0.5);
         }
     }
 
@@ -101,7 +98,7 @@ main {
 }
 
 footer {
-    grid-area: 3 / 1 / span 1 / span 1;
+    margin: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
