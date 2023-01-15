@@ -2,10 +2,13 @@
 @import "config";
 
 body {
-    min-width: 700px;
+    min-width: 500px;
+    min-height: 100vh;
     overflow: scroll;
     display: grid;
-    grid-template-rows: 10vh 85vh 5vh;
+    grid-template-rows: 5rem auto 3rem;
+    grid-template-columns: auto;
+    gap: 20px;
     color: #ffffff;
     @include body;
 
@@ -49,20 +52,20 @@ header {
 
 main {
     grid-area: 2 / 1 / span 1 / span 1;
-    padding: 50px 0 100px;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
     align-items: center;
 
     .clock {
+        margin: 20px;
         text-align: center;
 
         #time {
             margin-bottom: 5px;
             border-radius: 10px;
             padding: 10px 20px;
-            background: $color-1;
+            background: rgba(#000000, 0.5);
             @include title;
         }
 
@@ -73,11 +76,12 @@ main {
             display: inline-block;
             border-radius: 10px;
             padding: 10px 20px;
-            background: $color-1;
+            background: rgba(#000000, 0.5);
         }
     }
 
     .weather {
+        margin: 20px;
         text-align: center;
 
         #city {
@@ -86,7 +90,6 @@ main {
 
         #temperature {
             margin: 20px 0;
-            color: $color-2;
             @include title;
         }
 

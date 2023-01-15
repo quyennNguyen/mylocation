@@ -5,10 +5,13 @@
 }
 
 body {
-  min-width: 700px;
+  min-width: 500px;
+  min-height: 100vh;
   overflow: scroll;
   display: grid;
-  grid-template-rows: 10vh 85vh 5vh;
+  grid-template-rows: 5rem auto 3rem;
+  grid-template-columns: auto;
+  gap: 20px;
   color: #ffffff;
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -60,20 +63,20 @@ header form #current-location-btn:hover {
 
 main {
   grid-area: 2/1/span 1/span 1;
-  padding: 50px 0 100px;
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
 }
 main .clock {
+  margin: 20px;
   text-align: center;
 }
 main .clock #time {
   margin-bottom: 5px;
   border-radius: 10px;
   padding: 10px 20px;
-  background: #3d405b;
+  background: rgba(0, 0, 0, 0.5);
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main .clock #day,
@@ -83,9 +86,10 @@ main .clock #year {
   display: inline-block;
   border-radius: 10px;
   padding: 10px 20px;
-  background: #3d405b;
+  background: rgba(0, 0, 0, 0.5);
 }
 main .weather {
+  margin: 20px;
   text-align: center;
 }
 main .weather #city {
@@ -93,7 +97,6 @@ main .weather #city {
 }
 main .weather #temperature {
   margin: 20px 0;
-  color: #f2cc8f;
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main .weather #weather {
