@@ -20,16 +20,6 @@
     transition: all $duration ease-in-out;
 }
 
-// @mixin link {
-//     color: $color-3;
-//     text-decoration: none;
-//     @include body;
-
-//     &:hover {
-//         color: $color-2;
-//     }
-// }
-
 @mixin button {
     border: none;
     color: #ffffff;
