@@ -2,7 +2,7 @@
 @import "config";
 
 body {
-    min-width: 490px;
+    min-width: 500px;
     min-height: 100vh;
     overflow: scroll;
     display: grid;
@@ -52,6 +52,7 @@ header {
 
 main {
     grid-area: 2 / 1 / span 1 / span 1;
+    padding: 50px;
     display: flex;
     flex-flow: column;
     justify-content: space-evenly;
