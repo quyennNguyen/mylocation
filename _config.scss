@@ -16,10 +16,6 @@
     font: map-get($font-weight, "S") map-get($font-size, "S") $font-family;
 }
 
-@mixin transition($duration: 0.5s) {
-    transition: all $duration ease-in-out;
-}
-
 @mixin button {
     border: none;
     color: #ffffff;

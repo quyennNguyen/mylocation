@@ -92,7 +92,7 @@ main .weather #temperature {
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main .weather #weather {
-  font: 600 1.5rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font: 600 2rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main #map {
   margin: 20px;
