@@ -26,7 +26,13 @@ header {
     form {
 
         #search-input {
-            @include input;
+            border: solid rgba(#ffffff, 0.5);
+            border-radius: 30px;
+            padding: 10px 20px;
+            outline: none;
+            color: #ffffff;
+            background: transparent;
+            @include body;
         }
 
         #search-btn {
@@ -62,9 +68,7 @@ main {
 
         #time {
             margin-bottom: 5px;
-            // border-radius: 10px;
             padding: 10px 20px;
-            // background: rgba(#000000, 0.5);
             @include title;
         }
 
@@ -72,9 +76,7 @@ main {
         #month,
         #date,
         #year {
-            // border-radius: 10px;
             padding: 10px 20px;
-            // background: rgba(#000000, 0.5);
         }
     }
 
