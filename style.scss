@@ -2,7 +2,7 @@
 @import "config";
 
 body {
-    min-width: 800px;
+    min-width: 700px;
     min-height: 100vh;
     overflow: scroll;
     color: #ffffff;
@@ -58,7 +58,7 @@ main {
     align-items: center;
 
     #clock {
-        margin: 20px 0;
+        margin: 20px;
         min-width: 600px;
         min-height: 300px;
         display: flex;
@@ -81,7 +81,7 @@ main {
     }
 
     .weather {
-        margin: 20px 0;
+        margin: 20px;
         text-align: center;
 
         #city {
@@ -99,7 +99,7 @@ main {
     }
 
     #map {
-        margin: 20px 0;
+        margin: 20px;
     }
 }
 
