@@ -5,7 +5,6 @@
 }
 
 body {
-  min-width: 700px;
   min-height: 100vh;
   overflow: scroll;
   color: #ffffff;
@@ -61,7 +60,7 @@ main {
   align-items: center;
 }
 main #clock {
-  margin: 20px;
+  margin: 20px 0;
   min-width: 600px;
   min-height: 300px;
   display: flex;
@@ -81,7 +80,7 @@ main #clock #year {
   padding: 10px 20px;
 }
 main .weather {
-  margin: 20px;
+  margin: 20px 0;
   text-align: center;
 }
 main .weather #city {
@@ -95,7 +94,7 @@ main .weather #weather {
   font: 600 2rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main #map {
-  margin: 20px;
+  margin: 20px 0;
 }
 
 footer {

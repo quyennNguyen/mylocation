@@ -57,7 +57,7 @@ main {
     align-items: center;
 
     #clock {
-        margin: 20px;
+        margin: 20px 0;
         min-width: 600px;
         min-height: 300px;
         display: flex;
@@ -80,7 +80,7 @@ main {
     }
 
     .weather {
-        margin: 20px;
+        margin: 20px 0;
         text-align: center;
 
         #city {
@@ -98,7 +98,7 @@ main {
     }
 
     #map {
-        margin: 20px;
+        margin: 20px 0;
     }
 }
 
