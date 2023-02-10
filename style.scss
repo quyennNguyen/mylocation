@@ -2,7 +2,7 @@
 @import "config";
 
 body {
-    min-width: 700px;
+    min-width: 800px;
     min-height: 100vh;
     overflow: scroll;
     color: #ffffff;
@@ -23,42 +23,66 @@ header {
         @include title;
     }
 
-    form {
+    #wave {
+        display: flex;
 
-        #search-input {
-            border: solid rgba(#ffffff, 0.5);
-            border-radius: 30px;
-            padding: 10px 20px;
-            outline: none;
-            color: #ffffff;
-            background: transparent;
-            @include body;
+        i {
+            margin: 0 5px;
         }
 
-        #search-btn {
-            margin: 0 8px;
-            @include button;
-        }
-
-        #current-location-btn {
-            @include button;
-
-            &:hover {
-                animation: animate 1s ease-in-out infinite;
+        @for $i from 1 through 3 {
+            i:nth-child(#{$i}) {
+                animation: animate1 1s ease-in-out #{$i * 0.1}s infinite;
             }
         }
     }
 }
 
 main {
-    margin: 20px;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-evenly;
-    align-items: center;
+    margin: 100px 20px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    gap: 30px;
+    justify-content: center;
+    align-content: center;
+
+    #search-engine {
+        grid-area: 1 / 1 / span 1 / span 3;
+        text-align: center;
+
+        form {
+            #search-input {
+                border: solid rgba(#ffffff, 0.5);
+                border-radius: 30px;
+                padding: 15px 30px;
+                width: 90%;
+                outline: none;
+                color: #ffffff;
+                background: transparent;
+                @include body;
+            }
+
+            #search-btn {
+                margin: 0 20px;
+                @include button;
+            }
+
+            #current-location-btn {
+                @include button;
+
+                &:hover {
+                    animation: animate1 1s ease-in-out infinite;
+                }
+            }
+        }
+    }
 
     #clock {
-        margin: 20px;
+        grid-area: 2 / 1 / span 1 / span 2;
+        border-radius: 20px;
+        width: 100%;
+        height: 100%;
         min-width: 600px;
         min-height: 300px;
         display: flex;
@@ -67,8 +91,7 @@ main {
         align-items: center;
 
         #time {
-            margin-bottom: 5px;
-            padding: 10px 20px;
+            margin: 10px 20px;
             @include title;
         }
 
@@ -76,30 +99,70 @@ main {
         #month,
         #date,
         #year {
-            padding: 10px 20px;
+            margin: 10px 20px;
         }
     }
 
-    .weather {
-        margin: 20px;
-        text-align: center;
+    .square {
+        border-radius: 20px;
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        background: rgba(#ffffff, 0.1);
 
-        #city {
-            @include title;
+        p {
+            margin: 3px 0;
+        }
+
+        #one {
+            grid-area: 2 / 3 / span 1 / span 1;
+        }
+
+        #two {
+            grid-area: 3 / 1 / span 1 / span 1;
+        }
+
+        #three {
+            grid-area: 3 / 2 / span 1 / span 1;
+        }
+
+        #four {
+            grid-area: 3 / 3 / span 1 / span 1;
+        }
+
+        #city,
+        #weather {
+            font-size: 2.5rem;
+            font-weight: map-get($font-weight, L);
         }
 
         #temperature {
-            margin: 20px 0;
-            @include title;
+            font-size: 5rem;
+            font-weight: map-get($font-weight, L);
         }
 
-        #weather {
-            @include subtitle;
+        #feel,
+        #max,
+        #min,
+        #lat,
+        #lon,
+        #sea-level,
+        #ground-level,
+        #wind,
+        #pressure,
+        #humidity,
+        #visibility {
+            font-size: 2rem;
+            font-weight: map-get($font-weight, M);
         }
     }
 
     #map {
-        margin: 20px;
+        grid-area: 4 / 1 / span 1 / span 3;
+        text-align: center;
     }
 }
 
@@ -110,7 +173,7 @@ footer {
     align-items: center;
 }
 
-@keyframes animate {
+@keyframes animate1 {
     0% {
         transform: translateY(0px);
     }
@@ -121,5 +184,51 @@ footer {
 
     100% {
         transform: translateY(0px);
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    main {
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto auto auto auto;
+
+        #search-engine {
+            grid-area: 1 / 1 / span 1 / span 2;
+
+            form {
+                #search-input {
+                    width: 80%;
+                }
+            }
+        }
+
+        #clock {
+            grid-area: 2 / 1 / span 1 / span 2;
+        }
+
+        .square {
+            width: 350px;
+            height: 350px;
+        }
+
+        #one {
+            grid-area: 3 / 1 / span 1 / span 1;
+        }
+
+        #four {
+            grid-area: 3 / 2 / span 1 / span 1;
+        }
+
+        #three {
+            grid-area: 4 / 1 / span 1 / span 1;
+        }
+
+        #two {
+            grid-area: 4 / 2 / span 1 / span 1;
+        }
+
+        #map {
+            grid-area: 5 / 1 / span 1 / span 2;
+        }
     }
 }

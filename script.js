@@ -1,97 +1,4 @@
-const city = document.getElementById("city");
-const coord = document.getElementById("coordinates");
-const temp = document.getElementById("temperature");
-const weather = document.getElementById("weather");
-const minMaxTemp = document.getElementById("min-max-temp");
 const input = document.getElementById("search-input");
-const map = document.getElementById("map");
-
-const OWAPIKey = "a0f8477cb9901f90fe0e1fb2f422273b";
-const GAPIKey = "AIzaSyD7OxAY-i7i4-BxyuoIP9bgqMwiP0K_dRU";
-
-const displayLocalLocation = () => {
-  stopTime();
-
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-        getCity(lat, lon);
-        getWeather(lat, lon);
-        map.innerHTML = `<img src="https://maps.googleapis.com/maps/api/staticmap?center=${lat,lon}&zoom=14&size=400x300&sensor=false&key=${GAPIKey}" alt="my location">`;
-      },
-      (error) => {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            alert("User denied the request for Geolocation.");
-            break;
-          case error.POSITION_UNAVAILABLE:
-            alert("Location information is unavailable.");
-            break;
-          case error.TIMEOUT:
-            alert("The request to get user location timed out.");
-            break;
-          case error.UNKNOWN_ERROR:
-            alert("An unknown error occurred.");
-            break;
-          default:
-            break;
-        }
-      }
-    );
-  } else {
-    alert("Geolocation is not supported by this browser.");
-  }
-};
-
-const displaySearchLocation = () => {
-  stopTime();
-
-  let location = input.value;
-
-  fetch(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${OWAPIKey}`
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      let lat = response[0].lat;
-      let lon = response[0].lon;
-      getCity(lat, lon);
-      getWeather(lat, lon);
-    })
-    .catch((error) => alert(error));
-};
-
-const getCity = (lat, lon) => {
-  fetch(
-    `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${OWAPIKey}`
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      city.innerHTML = `${response[0].name}`;
-      coord.innerHTML = `Lat:${lat.toFixed(
-        2
-      )}&nbsp;&nbsp;&nbsp;Lon:${lon.toFixed(2)}`;
-    })
-    .catch((error) => alert(error));
-};
-
-const getWeather = (lat, lon) => {
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OWAPIKey}&units=imperial`
-  )
-    .then((response) => response.json())
-    .then((response) => {
-      temp.innerHTML = `${response.main.temp}&#176;`;
-      weather.innerHTML = `${response.weather[0].main}`;
-      minMaxTemp.innerHTML = `H:${response.main.temp_max}&#176;&nbsp;&nbsp;&nbsp;L:${response.main.temp_min}&#176;`;
-      searchTime(response.timezone, response.sys.sunrise, response.sys.sunset);
-    })
-    .catch((error) => alert(error));
-};
-
-// ----------------------------------------------------------------------
 
 const clock = document.getElementById("clock");
 const time = document.getElementById("time");
@@ -99,18 +6,30 @@ const day = document.getElementById("day");
 const month = document.getElementById("month");
 const date = document.getElementById("date");
 const year = document.getElementById("year");
+
+const city = document.getElementById("city");
+const temp = document.getElementById("temperature");
+const weather = document.getElementById("weather");
+const latitude = document.getElementById("lat");
+const longitude = document.getElementById("lon");
+const seaLvl = document.getElementById("sea-level");
+const groundLvl = document.getElementById("ground-level");
+const feel = document.getElementById("feel");
+const max = document.getElementById("max");
+const min = document.getElementById("min");
+const wind = document.getElementById("wind");
+const pressure = document.getElementById("pressure");
+const humidity = document.getElementById("humidity");
+const visibility = document.getElementById("visibility");
+
+const map = document.getElementById("map");
+
+// ----------------------------------------------------------------------
+
 let id1,
   id2 = 0;
 
-const dayArr = [
-  "Sun",
-  "Mon",
-  "Tue",
-  "Wed",
-  "Thu",
-  "Fri",
-  "Sat",
-];
+const dayArr = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const monthArr = [
   "Jan",
   "Feb",
@@ -187,3 +106,106 @@ const stopTime = () => {
   clearInterval(id2);
   id1 = id2 = 0;
 };
+
+// ----------------------------------------------------------------------
+
+const OWAPIKey = "a0f8477cb9901f90fe0e1fb2f422273b";
+const GAPIKey = "AIzaSyD7OxAY-i7i4-BxyuoIP9bgqMwiP0K_dRU";
+
+const displayLocalLocation = () => {
+  stopTime();
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        getCity(lat, lon);
+        getWeather(lat, lon);
+
+        map.innerHTML = `<img src="https://maps.googleapis.com/maps/api/staticmap?center=${
+          (lat, lon)
+        }&zoom=14&size=600x300&sensor=false&key=${GAPIKey}" alt="my location">`;
+      },
+      (error) => {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+          case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+          case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+          case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+          default:
+            break;
+        }
+      }
+    );
+  } else {
+    alert("Geolocation is not supported by this browser.");
+  }
+};
+
+const displaySearchLocation = () => {
+  stopTime();
+
+  let location = input.value;
+
+  fetch(
+    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&appid=${OWAPIKey}`
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      let lat = response[0].lat;
+      let lon = response[0].lon;
+      getCity(lat, lon);
+      getWeather(lat, lon);
+    })
+    .catch((error) => alert(error));
+}; // this function uses direct geocoding API call
+
+const getCity = (lat, lon) => {
+  fetch(
+    `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${OWAPIKey}`
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      city.innerHTML = `${response[0].name}`;
+      latitude.innerHTML = `${lat.toFixed(2)}`;
+      longitude.innerHTML = `${lon.toFixed(2)}`;
+    })
+    .catch((error) => alert(error));
+}; // this function uses reverse geocoding API call
+
+const getWeather = (lat, lon) => {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${OWAPIKey}&units=imperial`
+  )
+    .then((response) => response.json())
+    .then((response) => {
+      temp.innerHTML = `${response.main.temp}&#176;F`;
+      weather.innerHTML = `${response.weather[0].main}`;
+
+      // seaLvl.innerHTML = ` ${response.main.sea_level} hPa`;
+      // groundLvl.innerHTML = ` ${response.main.grnd_level} hPa`;
+
+      console.log(response.main)
+
+      feel.innerHTML = ` ${response.main.feels_like}&#176;F`;
+      max.innerHTML = `${response.main.temp_max}&#176;F`;
+      min.innerHTML = `${response.main.temp_min}&#176;F`;
+
+      wind.innerHTML = ` ${response.wind.speed} mph`;
+      pressure.innerHTML = ` ${response.main.pressure} hPa`;
+      humidity.innerHTML = ` ${response.main.humidity}%`;
+      visibility.innerHTML = ` ${response.visibility /1000}km`;
+
+      searchTime(response.timezone, response.sys.sunrise, response.sys.sunset);
+    })
+    .catch((error) => alert(error));
+}; // this function calls current weather data from OpenWeather API

@@ -5,26 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Location</title>
+    <title>Weather</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body onload="displayLocalLocation()">
     <header>
         <h1 class="title">QQ</h1>
-        <form action="" onsubmit="return false">
-            <input id="search-input" type="text" placeholder="City, State, Country" autocapitalize="words"
-                onsubmit="displaySearchLocation()">
-            <button id="search-btn" type="submit" onclick="displaySearchLocation()">
-                <i class="fa-magnifying-glass fa-solid"></i>
-            </button>
-            <button id="current-location-btn" type="submit" onclick="displayLocalLocation()">
-                <i class="fa-solid fa-location-dot"></i>
-            </button>
-        </form>
+        <h1>Weather App</h1>
+        <h3 id="wave">
+            <i class="fa-solid fa-cloud"></i>
+            <i class="fa-solid fa-cloud"></i>
+            <i class="fa-solid fa-cloud"></i>
+        </h3>
     </header>
 
     <main>
+        <section id="search-engine">
+            <form action="" onsubmit="return false">
+                <input id="search-input" type="text" placeholder="City, State, Country" autocapitalize="words"
+                    onsubmit="displaySearchLocation()">
+                <button id="search-btn" type="submit" onclick="displaySearchLocation()">
+                    <i class="fa-magnifying-glass fa-solid"></i>
+                </button>
+                <button id="current-location-btn" type="submit" onclick="displayLocalLocation()">
+                    <i class="fa-solid fa-location-dot"></i>
+                </button>
+            </form>
+        </section>
+
         <section id="clock">
             <div id="time"></div>
             <div>
@@ -35,12 +44,62 @@
             </div>
         </section>
 
-        <section class="weather">
-            <div id="city">-----</div>
-            <div id="coordinates">----- -----</div>
-            <div id="temperature">--</div>
-            <div id="weather">-----</div>
-            <div id="min-max-temp">-- --</div>
+        <section class="square" id="one">
+            <p id="city">-----</p>
+            <p id="temperature">--</p>
+            <p id="weather">-----</p>
+        </section>
+
+        <section class="square" id="two">
+            <p>
+                <i class="fa-solid fa-wind"></i>
+                wind:
+                <span id="wind">--</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-gauge"></i>
+                pressure:
+                <span id="pressure">--</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-droplet"></i>
+                humidity:
+                <span id="humidity">--</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-eye"></i>
+                visibility:
+                <span id="visibility">--</span>
+            </p>
+        </section>
+
+        <section class="square" id="three">
+            <p>
+                lat: <span id="lat">--</span>&nbsp;&nbsp;&nbsp;
+                lon: <span id="lon">--</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-water"></i>
+                sea level:
+                <span id="sea-level">--</span>
+            </p>
+            <p>
+                <i class="fa-solid fa-mountain-sun"></i>
+                ground level:
+                <span id="ground-level">--</span>
+            </p>
+        </section>
+
+        <section class="square" id="four">
+            <p>
+                <i class="fa-solid fa-temperature-low"></i>
+                feels like
+                <span id="feel">--</span>
+            </p>
+            <p>
+                high: <span id="max">--</span>&nbsp;&nbsp;&nbsp;
+                low: <span id="min">--</span>
+            </p>
         </section>
 
         <section id="map"></section>

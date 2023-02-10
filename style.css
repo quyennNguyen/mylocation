@@ -5,7 +5,7 @@
 }
 
 body {
-  min-width: 700px;
+  min-width: 800px;
   min-height: 100vh;
   overflow: scroll;
   color: #ffffff;
@@ -24,44 +24,68 @@ header {
 header .title {
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-header form #search-input {
+header #wave {
+  display: flex;
+}
+header #wave i {
+  margin: 0 5px;
+}
+header #wave i:nth-child(1) {
+  animation: animate1 1s ease-in-out 0.1s infinite;
+}
+header #wave i:nth-child(2) {
+  animation: animate1 1s ease-in-out 0.2s infinite;
+}
+header #wave i:nth-child(3) {
+  animation: animate1 1s ease-in-out 0.3s infinite;
+}
+
+main {
+  margin: 100px 20px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  gap: 30px;
+  justify-content: center;
+  align-content: center;
+}
+main #search-engine {
+  grid-area: 1/1/span 1/span 3;
+  text-align: center;
+}
+main #search-engine form #search-input {
   border: solid rgba(255, 255, 255, 0.5);
   border-radius: 30px;
-  padding: 10px 20px;
+  padding: 15px 30px;
+  width: 90%;
   outline: none;
   color: #ffffff;
   background: transparent;
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-header form #search-btn {
-  margin: 0 8px;
+main #search-engine form #search-btn {
+  margin: 0 20px;
   border: none;
   color: #ffffff;
   background: transparent;
   cursor: pointer;
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-header form #current-location-btn {
+main #search-engine form #current-location-btn {
   border: none;
   color: #ffffff;
   background: transparent;
   cursor: pointer;
   font: 400 1.25rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-header form #current-location-btn:hover {
-  -webkit-animation: animate 1s ease-in-out infinite;
-          animation: animate 1s ease-in-out infinite;
-}
-
-main {
-  margin: 20px;
-  display: flex;
-  flex-flow: column;
-  justify-content: space-evenly;
-  align-items: center;
+main #search-engine form #current-location-btn:hover {
+  animation: animate1 1s ease-in-out infinite;
 }
 main #clock {
-  margin: 20px;
+  grid-area: 2/1/span 1/span 2;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
   min-width: 600px;
   min-height: 300px;
   display: flex;
@@ -70,32 +94,66 @@ main #clock {
   align-items: center;
 }
 main #clock #time {
-  margin-bottom: 5px;
-  padding: 10px 20px;
+  margin: 10px 20px;
   font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 main #clock #day,
 main #clock #month,
 main #clock #date,
 main #clock #year {
-  padding: 10px 20px;
+  margin: 10px 20px;
 }
-main .weather {
-  margin: 20px;
-  text-align: center;
+main .square {
+  border-radius: 20px;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
 }
-main .weather #city {
-  font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+main .square p {
+  margin: 3px 0;
 }
-main .weather #temperature {
-  margin: 20px 0;
-  font: 800 3rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+main .square #one {
+  grid-area: 2/3/span 1/span 1;
 }
-main .weather #weather {
-  font: 600 2rem "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+main .square #two {
+  grid-area: 3/1/span 1/span 1;
+}
+main .square #three {
+  grid-area: 3/2/span 1/span 1;
+}
+main .square #four {
+  grid-area: 3/3/span 1/span 1;
+}
+main .square #city,
+main .square #weather {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+main .square #temperature {
+  font-size: 5rem;
+  font-weight: 800;
+}
+main .square #feel,
+main .square #max,
+main .square #min,
+main .square #lat,
+main .square #lon,
+main .square #sea-level,
+main .square #ground-level,
+main .square #wind,
+main .square #pressure,
+main .square #humidity,
+main .square #visibility {
+  font-size: 2rem;
+  font-weight: 600;
 }
 main #map {
-  margin: 20px;
+  grid-area: 4/1/span 1/span 3;
+  text-align: center;
 }
 
 footer {
@@ -105,7 +163,7 @@ footer {
   align-items: center;
 }
 
-@-webkit-keyframes animate {
+@keyframes animate1 {
   0% {
     transform: translateY(0px);
   }
@@ -116,15 +174,37 @@ footer {
     transform: translateY(0px);
   }
 }
-
-@keyframes animate {
-  0% {
-    transform: translateY(0px);
+@media screen and (max-width: 1300px) {
+  main {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto auto auto auto;
   }
-  50% {
-    transform: translateY(-10px);
+  main #search-engine {
+    grid-area: 1/1/span 1/span 2;
   }
-  100% {
-    transform: translateY(0px);
+  main #search-engine form #search-input {
+    width: 80%;
+  }
+  main #clock {
+    grid-area: 2/1/span 1/span 2;
+  }
+  main .square {
+    width: 350px;
+    height: 350px;
+  }
+  main #one {
+    grid-area: 3/1/span 1/span 1;
+  }
+  main #four {
+    grid-area: 3/2/span 1/span 1;
+  }
+  main #three {
+    grid-area: 4/1/span 1/span 1;
+  }
+  main #two {
+    grid-area: 4/2/span 1/span 1;
+  }
+  main #map {
+    grid-area: 5/1/span 1/span 2;
   }
 }/*# sourceMappingURL=style.css.map */
