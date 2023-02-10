@@ -176,8 +176,6 @@ const getCity = (lat, lon) => {
     .then((response) => response.json())
     .then((response) => {
       city.innerHTML = `${response[0].name}`;
-      latitude.innerHTML = `${lat.toFixed(2)}`;
-      longitude.innerHTML = `${lon.toFixed(2)}`;
     })
     .catch((error) => alert(error));
 }; // this function uses reverse geocoding API call
@@ -190,6 +188,9 @@ const getWeather = (lat, lon) => {
     .then((response) => {
       temp.innerHTML = `${response.main.temp}&#176;F`;
       weather.innerHTML = `${response.weather[0].main}`;
+
+      latitude.innerHTML = `${lat.toFixed(2)}`;
+      longitude.innerHTML = `${lon.toFixed(2)}`;
 
       // seaLvl.innerHTML = ` ${response.main.sea_level} hPa`;
       // groundLvl.innerHTML = ` ${response.main.grnd_level} hPa`;
