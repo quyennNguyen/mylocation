@@ -42,7 +42,7 @@ main {
     margin: 100px 20px;
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
     gap: 30px;
     justify-content: center;
     align-content: center;
@@ -105,33 +105,50 @@ main {
 
     .square {
         border-radius: 20px;
-        width: 400px;
-        height: 400px;
+        padding: 20px;
+        height: 250px;
+        background: rgba(#ffffff, 0.1);
+
+        div:first-child {
+            opacity: 0.5;
+        }
+
+        div:last-child {
+            height: 90%;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+        }
+
+        #feel,
+        #wind,
+        #pressure,
+        #humidity,
+        #visibility {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: map-get($font-weight, M);
+        }
+
+        #max,
+        #min {
+            font-size: 2rem;
+            font-weight: map-get($font-weight, M);
+        }
+
+        #lat,
+        #lon {
+            font-size: 3rem;
+            font-weight: map-get($font-weight, M);
+        }
+    }
+
+    #one {
+        height: 300px;
         display: flex;
         flex-flow: column;
         justify-content: center;
         align-items: center;
-        background: rgba(#ffffff, 0.1);
-
-        p {
-            margin: 3px 0;
-        }
-
-        #one {
-            grid-area: 2 / 3 / span 1 / span 1;
-        }
-
-        #two {
-            grid-area: 3 / 1 / span 1 / span 1;
-        }
-
-        #three {
-            grid-area: 3 / 2 / span 1 / span 1;
-        }
-
-        #four {
-            grid-area: 3 / 3 / span 1 / span 1;
-        }
 
         #city,
         #weather {
@@ -140,28 +157,13 @@ main {
         }
 
         #temperature {
-            font-size: 4.5rem;
+            font-size: 4rem;
             font-weight: map-get($font-weight, L);
-        }
-
-        #feel,
-        #max,
-        #min,
-        #lat,
-        #lon,
-        #sea-level,
-        #ground-level,
-        #wind,
-        #pressure,
-        #humidity,
-        #visibility {
-            font-size: 2rem;
-            font-weight: map-get($font-weight, M);
         }
     }
 
     #map {
-        grid-area: 4 / 1 / span 1 / span 3;
+        grid-area: 5 / 1 / span 1 / span 3;
         text-align: center;
     }
 }
@@ -190,7 +192,7 @@ footer {
 @media screen and (max-width: 1300px) {
     main {
         grid-template-columns: auto auto;
-        grid-template-rows: auto auto auto auto auto;
+        grid-template-rows: auto auto auto auto auto auto auto;
 
         #search-engine {
             grid-area: 1 / 1 / span 1 / span 2;
@@ -206,29 +208,12 @@ footer {
             grid-area: 2 / 1 / span 1 / span 2;
         }
 
-        .square {
-            width: 350px;
-            height: 350px;
-        }
-
         #one {
-            grid-area: 3 / 1 / span 1 / span 1;
-        }
-
-        #four {
-            grid-area: 3 / 2 / span 1 / span 1;
-        }
-
-        #three {
-            grid-area: 4 / 1 / span 1 / span 1;
-        }
-
-        #two {
-            grid-area: 4 / 2 / span 1 / span 1;
+            grid-area: 3 / 1 / span 1 / span 2;
         }
 
         #map {
-            grid-area: 5 / 1 / span 1 / span 2;
+            grid-area: 7 / 1 / span 1 / span 2;
         }
     }
 }

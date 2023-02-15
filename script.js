@@ -192,9 +192,6 @@ const getWeather = (lat, lon) => {
       latitude.innerHTML = `${lat.toFixed(2)}`;
       longitude.innerHTML = `${lon.toFixed(2)}`;
 
-      // seaLvl.innerHTML = ` ${response.main.sea_level} hPa`;
-      // groundLvl.innerHTML = ` ${response.main.grnd_level} hPa`;
-
       console.log(response.main)
 
       feel.innerHTML = ` ${response.main.feels_like}&#176;F`;

@@ -44,7 +44,7 @@ main {
   margin: 100px 20px;
   display: grid;
   grid-template-columns: auto auto auto;
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto;
   gap: 30px;
   justify-content: center;
   align-content: center;
@@ -105,54 +105,56 @@ main #clock #year {
 }
 main .square {
   border-radius: 20px;
-  width: 400px;
-  height: 400px;
+  padding: 20px;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.1);
+}
+main .square div:first-child {
+  opacity: 0.5;
+}
+main .square div:last-child {
+  height: 90%;
   display: flex;
   flex-flow: column;
   justify-content: center;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.1);
-}
-main .square p {
-  margin: 3px 0;
-}
-main .square #one {
-  grid-area: 2/3/span 1/span 1;
-}
-main .square #two {
-  grid-area: 3/1/span 1/span 1;
-}
-main .square #three {
-  grid-area: 3/2/span 1/span 1;
-}
-main .square #four {
-  grid-area: 3/3/span 1/span 1;
-}
-main .square #city,
-main .square #weather {
-  font-size: 2.5rem;
-  font-weight: 600;
-}
-main .square #temperature {
-  font-size: 4.5rem;
-  font-weight: 800;
 }
 main .square #feel,
-main .square #max,
-main .square #min,
-main .square #lat,
-main .square #lon,
-main .square #sea-level,
-main .square #ground-level,
 main .square #wind,
 main .square #pressure,
 main .square #humidity,
 main .square #visibility {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 600;
+}
+main .square #max,
+main .square #min {
   font-size: 2rem;
   font-weight: 600;
 }
+main .square #lat,
+main .square #lon {
+  font-size: 3rem;
+  font-weight: 600;
+}
+main #one {
+  height: 300px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+main #one #city,
+main #one #weather {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+main #one #temperature {
+  font-size: 4rem;
+  font-weight: 800;
+}
 main #map {
-  grid-area: 4/1/span 1/span 3;
+  grid-area: 5/1/span 1/span 3;
   text-align: center;
 }
 
@@ -177,7 +179,7 @@ footer {
 @media screen and (max-width: 1300px) {
   main {
     grid-template-columns: auto auto;
-    grid-template-rows: auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto auto auto;
   }
   main #search-engine {
     grid-area: 1/1/span 1/span 2;
@@ -188,23 +190,10 @@ footer {
   main #clock {
     grid-area: 2/1/span 1/span 2;
   }
-  main .square {
-    width: 350px;
-    height: 350px;
-  }
   main #one {
-    grid-area: 3/1/span 1/span 1;
-  }
-  main #four {
-    grid-area: 3/2/span 1/span 1;
-  }
-  main #three {
-    grid-area: 4/1/span 1/span 1;
-  }
-  main #two {
-    grid-area: 4/2/span 1/span 1;
+    grid-area: 3/1/span 1/span 2;
   }
   main #map {
-    grid-area: 5/1/span 1/span 2;
+    grid-area: 7/1/span 1/span 2;
   }
 }/*# sourceMappingURL=style.css.map */
