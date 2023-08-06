@@ -13,42 +13,17 @@ body {
     }
 }
 
-header {
-    margin: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .title {
-        @include title;
-    }
-
-    #wave {
-        display: flex;
-
-        i {
-            margin: 0 5px;
-        }
-
-        @for $i from 1 through 3 {
-            i:nth-child(#{$i}) {
-                animation: animate1 1s ease-in-out #{$i * 0.1}s infinite;
-            }
-        }
-    }
-}
-
 main {
-    margin: 100px 20px;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto auto auto;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
     align-content: center;
 
     #search-engine {
         grid-area: 1 / 1 / span 1 / span 3;
+        margin-top: 20px;
         text-align: center;
 
         form {
@@ -161,11 +136,6 @@ main {
             font-weight: map-get($font-weight, L);
         }
     }
-
-    #map {
-        grid-area: 5 / 1 / span 1 / span 3;
-        text-align: center;
-    }
 }
 
 footer {
@@ -173,20 +143,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-@keyframes animate1 {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
 }
 
 @media screen and (max-width: 1300px) {

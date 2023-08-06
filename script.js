@@ -22,8 +22,6 @@ const pressure = document.getElementById("pressure");
 const humidity = document.getElementById("humidity");
 const visibility = document.getElementById("visibility");
 
-const map = document.getElementById("map");
-
 // ----------------------------------------------------------------------
 
 let id1,
@@ -122,10 +120,6 @@ const displayLocalLocation = () => {
         let lon = position.coords.longitude;
         getCity(lat, lon);
         getWeather(lat, lon);
-
-        map.innerHTML = `<img src="https://maps.googleapis.com/maps/api/staticmap?center=${
-          (lat, lon)
-        }&zoom=14&size=600x300&sensor=false&key=${GAPIKey}" alt="my location">`;
       },
       (error) => {
         switch (error.code) {
